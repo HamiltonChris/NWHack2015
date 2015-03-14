@@ -32,8 +32,9 @@ public class NetworkingTask extends AsyncTask<String,Void,HttpResponse> {
         HttpEntity httpEntity;
         if (!urlStr[0].endsWith("?"))
             urlStr[0]+="?";
-        HttpGet httpGet = new HttpGet(urlStr[0]);
         String paramString = URLEncodedUtils.format(params, "utf-8");
+        HttpGet httpGet = new HttpGet(urlStr[0] + paramString);
+
         try {
             return httpClient.execute(httpGet);
         } catch (Exception e) {
