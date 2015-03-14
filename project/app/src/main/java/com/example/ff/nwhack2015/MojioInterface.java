@@ -1,46 +1,39 @@
 package com.example.ff.nwhack2015;
 
-import com.example.ff.nwhack2015.MainActivity;
-
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.jar.Attributes;
 
 
-public class get_token extends Activity {
-
+public class MojioInterface extends Activity {
+    private String accessToken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_token);
+        setContentView(R.layout.activity_mojio_interface);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Uri data = getIntent().getData();
-        String uriString = data.toString();
-        Pattern p = Pattern.compile("access_token=([0-9a-f-]{36})");
-        Matcher m = p.matcher(uriString);
-        m.find();
-        String name = m.group(1);
-        Intent i = new Intent(this,MojioInterface.class);
-        i.putExtra("access_token", name);
-        i.putExtra("from","get_token");
-        startActivity(i);
+        Bundle extras = getIntent().getExtras();
+        accessToken = extras.getString("access_token");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_get_token, menu);
+        getMenuInflater().inflate(R.menu.menu_mojio_interface, menu);
         return true;
     }
 
@@ -57,5 +50,10 @@ public class get_token extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void displayJSON(View view) {
+        System.out.println(accessToken);
+        new HttpGetTask(new ArrayList<NameValuePair>(0), accessToken).execute("https://api.moj.io/v1/Trips?limit=10&offset=0&sortBy=StartTime&desc=false&criteria=");
     }
 }
