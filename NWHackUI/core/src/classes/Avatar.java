@@ -1,6 +1,5 @@
-package com.velocipenguins.classes;
+package classes;
 
-import java.lang.String;
 import java.util.ArrayList;
 import java.util.List;
 

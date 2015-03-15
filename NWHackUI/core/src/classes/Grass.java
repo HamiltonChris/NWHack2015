@@ -1,4 +1,4 @@
-package com.velocipenguins.classes;
+package classes;
 
 public class Grass extends Building {
     private int colour; // the colour of the grass. dependent on health

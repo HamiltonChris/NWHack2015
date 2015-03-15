@@ -1,6 +1,4 @@
-package com.velocipenguins.classes;
-
-import java.lang.String;
+package classes;
 
 public class Action {
     private String name; // name of the action

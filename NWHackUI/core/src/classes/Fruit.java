@@ -1,4 +1,4 @@
-package com.velocipenguins.classes;
+package classes;
 
 public class Fruit extends Item {
     private int heals;

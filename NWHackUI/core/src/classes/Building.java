@@ -1,4 +1,4 @@
-package com.velocipenguins.classes;
+package classes;
 
 public class Building {
     private String name;
