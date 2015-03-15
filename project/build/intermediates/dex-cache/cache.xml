@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/ff/NWHack2015/project/app/build/intermediates/pre-dexed/debug/apache-httpcomponents-httpclient-1c9b34c96df3fee43b0aee15787f4197c39ed0b9.jar"
+        jar="/home/ff/NWHack2015/project/app/libs/apache-httpcomponents-httpclient.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="13d1b1d8f318f5b0f95bc2901f378ef68982584f"/>
+
+</pre-dex-items>
